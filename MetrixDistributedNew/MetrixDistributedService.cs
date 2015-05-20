@@ -61,7 +61,7 @@ namespace MetrixDistributedNew
         public int EmployeeSave(Employee employee)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "INSERT INTO employee VALUES('" + employee.empIdValue + "','" + employee.empNameValue + "','" + employee.empContactValue + "', '" + employee.empAdLine1Value + "', '" + employee.empAdLine2Value + "', '" + employee.empDobValue + "', '" + employee.empNicValue + "', '" + employee.empPosValue + "', '" + employee.empDeptValue + "')";
+            string sql = "insert into metrix.employee values ('" + employee.empIdValue + "', '" + employee.empNameValue + "', '" + employee.empContactValue + "', '" + employee.empAdLine1Value + "' , '" + employee.empAdLine2Value + "', '" + employee.empDobValue + "', '" + employee.empNicValue + "', '" + employee.empPosValue + "', '" + employee.empDeptValue + "')";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -69,7 +69,7 @@ namespace MetrixDistributedNew
         public int EmployeeUpdate(Employee employee)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "UPDATE employee SET EmpName = '" + employee.empNameValue + "', ContactNo = '" + employee.empContactValue + "', AddressLine1 = '" + employee.empAdLine1Value + "', AddressLine2='" + employee.empAdLine2Value + "', DOB='" + employee.empDobValue + "', NICNo='" + employee.empNicValue + "', Position='" + employee.empPosValue + "', Department='" + employee.empDeptValue + "' WHERE EmpId='" + employee.empIdValue + "'";
+            string sql = "UPDATE metrix.employee SET EmpName = '" + employee.empNameValue + "', ContactNo = '" + employee.empContactValue + "', AddressLine1 = '" + employee.empAdLine1Value + "', AddressLine2='" + employee.empAdLine2Value + "', DOB='" + employee.empDobValue + "', NICNo='" + employee.empNicValue + "', Position='" + employee.empPosValue + "', Department='" + employee.empDeptValue + "' WHERE EmpId='" + employee.empIdValue + "'";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -77,7 +77,7 @@ namespace MetrixDistributedNew
         public int EmployeeDelete(Employee employee)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "DELETE FROM employee WHERE EmpId='" + employee.empIdValue + "' ";
+            string sql = "DELETE FROM metrix.employee WHERE EmpId='" + employee.empIdValue + "' ";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -87,7 +87,7 @@ namespace MetrixDistributedNew
             Employee employee = new Employee();
             DatabaseConnection db = new DatabaseConnection();
 
-            string sql = "SELECT * FROM employee WHERE EmpId = '" + employeeId + "'";
+            string sql = "SELECT * FROM metrix.employee WHERE EmpId = '" + employeeId + "'";
             DataTable table = db.SearchQuery(sql);
             employee.empNameValue = table.Rows[0][1].ToString();
             employee.empContactValue = table.Rows[0][2].ToString();
@@ -104,7 +104,7 @@ namespace MetrixDistributedNew
         public int ProductSave(Product product)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "INSERT INTO product VALUES('" + product.prodIdValue + "','" + product.nameValue + "','" + product.brandValue + "', '" + product.countryValue + "', '" + product.supIdValue + "', '" + product.purchPriceValue + "', '" + product.salePriceValue + "', '" + product.warrentValue + "')";
+            string sql = "INSERT INTO metrix.product VALUES('" + product.prodIdValue + "','" + product.nameValue + "','" + product.brandValue + "', '" + product.countryValue + "', '" + product.supIdValue + "', '" + product.purchPriceValue + "', '" + product.salePriceValue + "', '" + product.warrentValue + "')";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -112,7 +112,7 @@ namespace MetrixDistributedNew
         public int ProductUpdate(Product product)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "UPDATE product SET ProductName = '" + product.nameValue + "',  Brand= '" + product.brandValue + "', Country = '" + product.countryValue + "', SupplierId='" + product.supIdValue + "',PurchasePrice='" + product.purchPriceValue + "', SalesPrice='" + product.salePriceValue + "', Warrenty='" + product.warrentValue + "' WHERE productId='" + product.prodIdValue + "'   ";
+            string sql = "UPDATE metrix.product SET ProductName = '" + product.nameValue + "',  Brand= '" + product.brandValue + "', Country = '" + product.countryValue + "', SupplierId='" + product.supIdValue + "',PurchasePrice='" + product.purchPriceValue + "', SalesPrice='" + product.salePriceValue + "', Warrenty='" + product.warrentValue + "' WHERE productId='" + product.prodIdValue + "'   ";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -120,7 +120,7 @@ namespace MetrixDistributedNew
         public int ProductDelete(Product product)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "DELETE FROM product WHERE productId='" + product.prodIdValue + "'";
+            string sql = "DELETE FROM metrix.product WHERE productId='" + product.prodIdValue + "'";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -130,7 +130,7 @@ namespace MetrixDistributedNew
             Product product = new Product();
             DatabaseConnection db = new DatabaseConnection();
 
-            string sql = "SELECT * FROM product WHERE productId = '" + productId + "'";
+            string sql = "SELECT * FROM metrix.product WHERE productId = '" + productId + "'";
             DataTable table = db.SearchQuery(sql);
             product.nameValue = table.Rows[0][1].ToString();
             product.brandValue = table.Rows[0][2].ToString();
@@ -146,7 +146,7 @@ namespace MetrixDistributedNew
         public int SupplierSave(Supplier supplier)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "INSERT INTO supplier VALUES('" + supplier.supIdValue + "','" + supplier.companyNameValue + "','" + supplier.contactValue + "', '" + supplier.add + "', '" + supplier.countryValue + "', '" + supplier.emailValue + "', '" + supplier.refNameValue + "') ";
+            string sql = "INSERT INTO metrix.supplier VALUES('" + supplier.supIdValue + "','" + supplier.companyNameValue + "','" + supplier.contactValue + "', '" + supplier.add + "', '" + supplier.countryValue + "', '" + supplier.emailValue + "', '" + supplier.refNameValue + "') ";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -154,7 +154,7 @@ namespace MetrixDistributedNew
         public int SupplierUpdate(Supplier supplier)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "UPDATE supplier SET CompanyName = '" + supplier.companyNameValue + "',  ContactNo= '" + supplier.contactValue + "', Address = '" + supplier.add + "', Country='" + supplier.countryValue + "',Email='" + supplier.emailValue + "', ReferenceName='" + supplier.refNameValue + "' WHERE SupplierId='" + supplier.supIdValue + "' ";
+            string sql = "UPDATE metrix.supplier SET CompanyName = '" + supplier.companyNameValue + "',  ContactNo= '" + supplier.contactValue + "', Address = '" + supplier.add + "', Country='" + supplier.countryValue + "',Email='" + supplier.emailValue + "', ReferenceName='" + supplier.refNameValue + "' WHERE SupplierId='" + supplier.supIdValue + "' ";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -162,7 +162,7 @@ namespace MetrixDistributedNew
         public int SupplierDelete(Supplier supplier)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "DELETE FROM product WHERE SupplierId='" + supplier.supIdValue + "' ";
+            string sql = "DELETE FROM metrix.product WHERE SupplierId='" + supplier.supIdValue + "' ";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -172,7 +172,7 @@ namespace MetrixDistributedNew
             Supplier supplier = new Supplier();
             DatabaseConnection db = new DatabaseConnection();
 
-            string sql = "SELECT * FROM supplier WHERE SupplierId = '" + supplierId + "'";
+            string sql = "SELECT * FROM metrix.supplier WHERE SupplierId = '" + supplierId + "'";
             DataTable table = db.SearchQuery(sql);
             supplier.companyNameValue = table.Rows[0][1].ToString();
             supplier.contactValue = table.Rows[0][2].ToString();
@@ -308,7 +308,7 @@ namespace MetrixDistributedNew
         public int InvoiceSave(Invoice invoice)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "INSERT INTO `transaction`(`TransactionId`, `Date`, `Time`, `Total`, `EmpId`, `CustomerId`) VALUES( '" + invoice.invoice + "','" + invoice.Date + "','" + invoice.Invotime + "','" + invoice.tot + "','" + invoice.employeeId + "','" + invoice.customer + "')";
+            string sql = "INSERT INTO metrix.transaction (TransactionId, Date, Time, Total, EmpId, CustomerId) VALUES( '" + invoice.invoice + "','" + invoice.Date + "','" + invoice.Invotime + "','" + invoice.tot + "','" + invoice.employeeId + "','" + invoice.customer + "')";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -316,7 +316,7 @@ namespace MetrixDistributedNew
         public int SaveInvoiceList(Invoice invoice)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "INSERT INTO `transproduct`(`invoId`,`producId`, `quantity`) VALUES ( '" + invoice.invoice + "','" + invoice.product + "','" + invoice.quan + "')";
+            string sql = "INSERT INTO metrix.transproduct (invoId,producId, quantity) VALUES ( '" + invoice.invoice + "','" + invoice.product + "','" + invoice.quan + "')";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -326,7 +326,7 @@ namespace MetrixDistributedNew
             Invoice invoice = new Invoice();
             DatabaseConnection db = new DatabaseConnection();
 
-            string sql = "SELECT `Date`, `Time`, `Total`, `EmpId`, `CustomerId` FROM `transaction` WHERE `TransactionId`='" + invoice.invoice + "' ";
+            string sql = "SELECT 'Date`, `Time`, `Total`, `EmpId`, `CustomerId` FROM 'metrix.transaction' WHERE `TransactionId`='" + invoice.invoice + "' ";
 
             DataTable table = db.SearchQuery(sql);
             invoice.Date = Convert.ToDateTime(table.Rows[0][1].ToString());
@@ -342,7 +342,7 @@ namespace MetrixDistributedNew
         public int OrderSave(Order order)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "INSERT INTO order(OrderId,OrderedDate,ExpectedDate,SupplierId) VALUES( '" + order.ordId + "','" + order.ordDate + "','" + order.expectDate + "','" + order.suplier + "')";
+            string sql = "INSERT INTO metrix.order(OrderId,OrderedDate,ExpectedDate,SupplierId) VALUES( '" + order.ordId + "','" + order.ordDate + "','" + order.expectDate + "','" + order.suplier + "')";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -350,7 +350,7 @@ namespace MetrixDistributedNew
         public int OrderUpdate(Order order)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "UPDATE order SET OrderedDate = '" + order.ordDate + "',  ExpectedDate= '" + order.expectDate + "', SupplierId = '" + order.suplier + "' WHERE OrderId='" + order.ordId + "' ";
+            string sql = "UPDATE metrix.order SET OrderedDate = '" + order.ordDate + "',  ExpectedDate= '" + order.expectDate + "', SupplierId = '" + order.suplier + "' WHERE OrderId='" + order.ordId + "' ";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -358,7 +358,7 @@ namespace MetrixDistributedNew
         public int OrderDelete(Order order)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "DELETE FROM order WHERE OrderId= '" + order.ordId + "' ";
+            string sql = "DELETE FROM metrix.order WHERE OrderId= '" + order.ordId + "' ";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -379,7 +379,7 @@ namespace MetrixDistributedNew
         public int SaveOrderList(Order order)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "INSERT INTO orderlist(OrderId, ProductId, Quantity) VALUES('" + order.ordId + "','" + order.product + "','" + order.Quantity + "')";
+            string sql = "INSERT INTO metrix.orderlist (OrderId, ProductId, Quantity) VALUES('" + order.ordId + "','" + order.product + "','" + order.Quantity + "')";
 
             return new DatabaseConnection().Query(sql);
         }
@@ -389,7 +389,7 @@ namespace MetrixDistributedNew
         public int SignIn(user user)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "SELECT `username`, `password` FROM `credentials` WHERE `username`='" + user.Username + "' ";
+            string sql = "SELECT `username`, `password` FROM `metrix.credentials` WHERE `username`='" + user.Username + "' ";
             return new DatabaseConnection().Query(sql);
         }
 
@@ -397,14 +397,14 @@ namespace MetrixDistributedNew
         public int SignUp(UserSettings usersett)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "INSERT INTO `credentials`(`username`, `password`) VALUES ('" + usersett.user + "','" + usersett.pass + "') ";
+            string sql = "INSERT INTO `metrix.credentials`(`username`, `password`) VALUES ('" + usersett.user + "','" + usersett.pass + "') ";
             return new DatabaseConnection().Query(sql);
         }
 
         public int ChangeUser(UserSettings usersett)
         {
             MySqlCommand cmd = new MySqlCommand();
-            string sql = "UPDATE `credentials` SET `password`='" + usersett.pass + "' WHERE `username`='" + usersett.user + "' ";
+            string sql = "UPDATE `metrix.credentials` SET `password`='" + usersett.pass + "' WHERE `username`='" + usersett.user + "' ";
             return new DatabaseConnection().Query(sql);
         }
     }
